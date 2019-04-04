@@ -1,0 +1,9 @@
+{
+  "name": "@instacart/prettier-config",
+  "version": "0.1.0",
+  "description": "Instacart's shared prettier config",
+  "main": "prettier.config.js",
+  "repository": "https://github.com/instacart/javascript",
+  "author": "Nathan Marks <nathan.marks@instacart.com>",
+  "license": "MIT"
+}

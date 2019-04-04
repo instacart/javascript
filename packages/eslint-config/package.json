@@ -1,0 +1,42 @@
+{
+  "name": "@instacart/eslint-config",
+  "version": "0.1.0",
+  "description": "Instacart's ESLint configuration",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ignore-pattern **/test/fixtures/*",
+    "lint-fix": "yarn run lint --fix",
+    "prepublishOnly": "yarn run test && yarn run lint",
+    "test": "jest"
+  },
+  "repository": "https://github.com/instacart/javascript",
+  "author": "Nathan Marks <nathan.marks@instacart.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": "^5.3.0",
+    "prettier": "^1.16.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/parser": "1.6.0",
+    "babel-eslint": "10.0.1",
+    "confusing-browser-globals": "1.0.6",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-import-resolver-typescript": "1.1.1",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.6.0",
+    "merge": "1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
+    "babel-jest": "24.7.1",
+    "eslint": "5.16.0",
+    "jest": "24.7.0",
+    "prettier": "1.16.4",
+    "typescript": "3.4.1"
+  }
+}

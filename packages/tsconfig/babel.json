@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "esnext",
+    "module": "ESNext",
+    "jsx": "preserve"
+  }
+}
