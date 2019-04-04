@@ -5,5 +5,5 @@ module.exports = {
   'react-hooks/rules-of-hooks': 'error',
 
   // Checks effect dependencies
-  'react-hooks/exhaustive-deps': 'warn',
+  'react-hooks/exhaustive-deps': 'error',
 }
