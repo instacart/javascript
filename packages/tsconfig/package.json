@@ -1,0 +1,17 @@
+{
+  "name": "@instacart/tsconfig",
+  "version": "1.0.0",
+  "description": "Instacart's shared TypeScript config",
+  "scripts": {
+    "test": "tsc -p test"
+  },
+  "main": "tsconfig.json",
+  "repository": "https://github.com/instacart/javascript",
+  "author": "Nathan Marks <nathan.marks@instacart.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "16.8.10",
+    "react": "16.8.6",
+    "typescript": "3.4.1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "instacart-javascript",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "Instacart JavaScript configs",
+  "main": "index.js",
+  "repository": "https://github.com/instacart/javascript",
+  "author": "Nathan Marks <nathan.marks@instacart.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "prettier": "1.16.4"
+  }
+}
