@@ -15,3 +15,7 @@ $ yarn add --dev @instacart/prettier-config
 // prettier.config.js
 module.exports = require('@instacart/prettier-config')
 ```
+
+
+[npm-url]: https://npmjs.org/package/@instacart/prettier-config
+[npm-image]: http://img.shields.io/npm/v/@instacart/prettier-config.svg?style=shield

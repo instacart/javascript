@@ -27,3 +27,7 @@ By default the package provides 2 configurations to extend from.
   }
 }
 ```
+
+
+[npm-url]: https://npmjs.org/package/@instacart/tsconfig
+[npm-image]: http://img.shields.io/npm/v/@instacart/tsconfig.svg?style=shield

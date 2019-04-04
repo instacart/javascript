@@ -4,6 +4,9 @@
   "description": "Instacart's shared prettier config",
   "main": "prettier.config.js",
   "repository": "https://github.com/instacart/javascript",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Nathan Marks <nathan.marks@instacart.com>",
   "license": "MIT"
 }
