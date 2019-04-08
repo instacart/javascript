@@ -18,7 +18,6 @@ module.exports = {
       rules: merge(require('./rules/typescript'), {
         // Already supported by TS
         'no-undef': 'off',
-        'no-unused-expressions': 'off',
         'no-unused-vars': 'off',
         'no-useless-constructor': 'off',
         'no-use-before-define': 'off',
