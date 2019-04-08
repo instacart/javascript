@@ -1,6 +1,6 @@
 {
   "name": "@instacart/eslint-config",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Instacart's ESLint configuration",
   "main": "index.js",
   "scripts": {
