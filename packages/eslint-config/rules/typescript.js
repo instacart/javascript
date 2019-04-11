@@ -122,7 +122,10 @@ module.exports = {
   '@typescript-eslint/no-unnecessary-type-assertion': 'off',
 
   // Disallow unused variables
-  '@typescript-eslint/no-unused-vars': 'error',
+  '@typescript-eslint/no-unused-vars': [
+    'error',
+    { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+  ],
 
   // Disallow the use of variables before they are defined
   '@typescript-eslint/no-use-before-define': 'off',

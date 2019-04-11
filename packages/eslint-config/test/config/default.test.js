@@ -18,4 +18,13 @@ describe('default config', () => {
       expect(result.warningCount).toBe(0)
     })
   })
+
+  describe('unused-rest-vars', () => {
+    it('should be allowed', () => {
+      const result = runFixture('default/unused-rest-vars')
+
+      expect(result.errorCount).toBe(0)
+      expect(result.warningCount).toBe(0)
+    })
+  })
 })
