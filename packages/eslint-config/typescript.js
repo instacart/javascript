@@ -25,6 +25,10 @@ module.exports = {
         // other
         'no-redeclare': 'off',
 
+        // reports errors for exported functions with overload signatures
+        // https://github.com/typescript-eslint/typescript-eslint/issues/10
+        'import/export': 'off',
+
         // issue with generic args in JSX
         'react/jsx-props-no-multi-spaces': 'off',
 
