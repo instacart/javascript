@@ -25,6 +25,14 @@ module.exports = {
         // other
         'no-redeclare': 'off',
 
+        // allow TS files to not have prop types defined
+        'react/prop-types': [
+          'error',
+          {
+            skipUndeclared: true,
+          },
+        ],
+
         // reports errors for exported functions with overload signatures
         // https://github.com/typescript-eslint/typescript-eslint/issues/10
         'import/export': 'off',

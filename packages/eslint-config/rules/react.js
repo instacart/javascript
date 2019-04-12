@@ -205,7 +205,7 @@ module.exports = {
         'static-methods',
         'instance-variables',
         'lifecycle',
-        '/^on.+$/',
+        '/^(on|handle).+$/',
         'getters',
         'setters',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
