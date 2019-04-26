@@ -128,7 +128,7 @@ module.exports = {
   ],
 
   // Disallow the use of variables before they are defined
-  '@typescript-eslint/no-use-before-define': 'off',
+  '@typescript-eslint/no-use-before-define': ['error', { functions: false, typedefs: false }],
 
   // Disallow unnecessary constructors
   '@typescript-eslint/no-useless-constructor': 'off',
