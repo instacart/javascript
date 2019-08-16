@@ -2,6 +2,7 @@
   "extends": "../tsconfig",
   "compilerOptions": {
     "rootDir": "./",
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "preserve",
   }
 }
