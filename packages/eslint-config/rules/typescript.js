@@ -32,7 +32,7 @@ module.exports = {
   '@typescript-eslint/indent': ['error', 2],
 
   // Require that interface names be prefixed with I
-  '@typescript-eslint/interface-name-prefix': 'off',
+  '@typescript-eslint/interface-name-prefix': ['error', 'never'],
 
   // Require a specific member delimiter style for interfaces and type literals
   '@typescript-eslint/member-delimiter-style': [
