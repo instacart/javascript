@@ -4,6 +4,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "lint": "eslint --ignore-pattern 'packages/eslint-config/test/fixtures/**' --ignore-pattern '**/node_modules/**' --ext .js,.ts,.tsx .",
+    "lint:fix": "yarn lint --fix"
+  },
   "description": "Instacart JavaScript configs",
   "main": "index.js",
   "repository": "https://github.com/instacart/javascript",
@@ -11,6 +15,19 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "5.16.0",
+    "husky": "3.0.3",
+    "lint-staged": "9.2.1",
     "prettier": "1.16.4"
+  },
+  "lint-staged": {
+    "packages/**/*.{js,ts,tsx}": [
+      "yarn lint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
   }
 }
