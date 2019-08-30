@@ -19,6 +19,17 @@ module.exports = {
   // Require PascalCased class and interface names
   '@typescript-eslint/class-name-casing': 'error',
 
+  // Enforces consistent usage of type assertions
+  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
+  '@typescript-eslint/consistent-type-assertions': [
+    'error',
+    { assertionStyle: 'as', objectLiteralTypeAssertions: 'allow-as-parameter' },
+  ],
+
+  // Consistent with type definition either interface or type
+  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
+  '@typescript-eslint/consistent-type-definitions': 'off',
+
   // Require explicit return types on functions and class methods
   '@typescript-eslint/explicit-function-return-type': 'off',
 
@@ -38,7 +49,14 @@ module.exports = {
   '@typescript-eslint/member-delimiter-style': [
     'error',
     {
-      delimiter: 'semi',
+      multiline: {
+        delimiter: 'semi',
+        requireLast: true,
+      },
+      singleline: {
+        delimiter: 'semi',
+        requireLast: false,
+      },
     },
   ],
 
@@ -67,9 +85,6 @@ module.exports = {
     },
   ],
 
-  // Enforces the use of as Type assertions instead of <Type> assertions
-  '@typescript-eslint/no-angle-bracket-type-assertion': 'error',
-
   // Disallow generic Array constructors
   '@typescript-eslint/no-array-constructor': 'error',
 
@@ -97,9 +112,6 @@ module.exports = {
   // Disallows non-null assertions using the ! postfix operator
   '@typescript-eslint/no-non-null-assertion': 'error',
 
-  // Forbids an object literal to appear in a type assertion expression
-  '@typescript-eslint/no-object-literal-type-assertion': 'error',
-
   // Disallow the use of parameter properties in class constructors.
   '@typescript-eslint/no-parameter-properties': 'error',
 
@@ -108,9 +120,6 @@ module.exports = {
 
   // Disallow aliasing this
   '@typescript-eslint/no-this-alias': 'off',
-
-  // Disallow /// <reference path="" /> comments
-  '@typescript-eslint/no-triple-slash-reference': 'error',
 
   // Disallow the use of type aliases
   '@typescript-eslint/no-type-alias': 'off',
@@ -139,9 +148,6 @@ module.exports = {
   // Use function types instead of interfaces with call signatures
   '@typescript-eslint/prefer-function-type': 'off',
 
-  // Prefer an interface declaration over a type literal
-  '@typescript-eslint/prefer-interface': 'off',
-
   // Require the use of the namespace keyword instead of the module keyword to declare custom TypeScript modules.
   '@typescript-eslint/prefer-namespace-keyword': 'off',
 
@@ -150,6 +156,10 @@ module.exports = {
 
   // When adding two variables, operands must both be of type number or of type string.
   '@typescript-eslint/restrict-plus-operands': 'off',
+
+  // Sets preference level for triple slash directives versus ES6-style import declarations
+  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/triple-slash-reference.md
+  '@typescript-eslint/triple-slash-reference': ['error', { types: 'prefer-import' }],
 
   // Require consistent spacing around type annotations
   '@typescript-eslint/type-annotation-spacing': 'error',
