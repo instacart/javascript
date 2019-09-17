@@ -9,4 +9,13 @@ describe('typescript', () => {
       expect(result.warningCount).toBe(0)
     })
   })
+
+  describe('circular deps', () => {
+    it('should have an error', () => {
+      const result = runFixture('typescript/cycle')
+
+      expect(result.errorCount).toBe(2)
+      expect(result.warningCount).toBe(0)
+    })
+  })
 })

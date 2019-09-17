@@ -1,20 +1,23 @@
 const merge = require('merge')
 
 module.exports = {
-  plugins: ['jsx-a11y', 'react'],
+  plugins: ['jsx-a11y', 'react', '@typescript-eslint'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
+      },
+      typescript: {},
+    },
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      settings: {
-        'import/parsers': {
-          'babel-eslint': ['.js'],
-        },
-        'import/resolver': {
-          typescript: {},
-        },
-      },
       rules: merge(require('./rules/typescript'), {
         // Already supported by TS
         'no-undef': 'off',
