@@ -4,5 +4,6 @@ module.exports = {
     '@instacart/eslint-config/react',
     '@instacart/eslint-config/typescript',
     '@instacart/eslint-config/prettier',
+    '@instacart/eslint-config/emotion',
   ],
 }
