@@ -14,7 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react": "16.8.10",
-    "react": "16.8.6",
+    "react": "16.13.1",
     "typescript": "3.9.5"
   }
 }
