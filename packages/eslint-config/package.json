@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "confusing-browser-globals": "1.0.9",
-    "eslint-config-prettier": "6.1.0",
+    "eslint-config-prettier": "6.11.0",
     "merge": "1.2.1"
   },
   "devDependencies": {
