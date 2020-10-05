@@ -1,0 +1,110 @@
+name: publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  eslint-config-publish-github:
+    name: Publish eslint-config to Github Package Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'eslint-config') }}
+    defaults:
+      run:
+        working-directory: packages/eslint-config
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://npm.pkg.github.com'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  eslint-config-publish-npm:
+    name: Publish eslint-config to NPM Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'eslint-config') }}
+    defaults:
+      run:
+        working-directory: packages/eslint-config
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  prettier-config-publish-github:
+    name: Publish prettier-config to Github Package Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'prettier-config') }}
+    defaults:
+      run:
+        working-directory: packages/prettier-config
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://npm.pkg.github.com'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  prettier-config-publish-npm:
+    name: Publish prettier-config to NPM Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'prettier-config') }}
+    defaults:
+      run:
+        working-directory: packages/prettier-config
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  tsconfig-publish-github:
+    name: Publish tsconfig to Github Package Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'tsconfig') }}
+    defaults:
+      run:
+        working-directory: packages/tsconfig
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://npm.pkg.github.com'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  tsconfig-publish-npm:
+    name: Publish tsconfig to NPM Registry
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.release.name, 'tsconfig') }}
+    defaults:
+      run:
+        working-directory: packages/tsconfig
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn install
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
