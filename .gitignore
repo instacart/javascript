@@ -7,3 +7,11 @@ package-lock.json
 
 # editor/ide stuff
 .vscode
+
+# yarn berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/pnpify
+!.yarn/versions
+.pnp.*

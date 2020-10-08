@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint --ignore-pattern 'packages/eslint-config/test/fixtures/**' --ignore-pattern '**/node_modules/**' --ext .js,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
-    "test": "yarn workspaces run test"
+    "test": "yarn workspaces foreach run test"
   },
   "description": "Instacart JavaScript configs",
   "main": "index.js",
