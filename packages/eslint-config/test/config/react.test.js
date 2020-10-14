@@ -1,12 +1,16 @@
+import path from 'path'
 import { runFixture } from '../utils'
 
 describe('react', () => {
   describe('sort comp', () => {
-    it('should have no errors or warnings', () => {
-      const result = runFixture('react/sort-comp-no-errors')
+    runFixture('react/sort-comp-no-errors').results.forEach(r => {
+      const file = path.basename(r.filePath)
 
-      expect(result.errorCount).toBe(0)
-      expect(result.warningCount).toBe(0)
+      it(`${file} has no errors or warnings`, () => {
+        expect(r.messages).toEqual([])
+        expect(r.errorCount).toBe(0)
+        expect(r.warningCount).toBe(0)
+      })
     })
   })
 })

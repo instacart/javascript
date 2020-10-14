@@ -1,21 +1,29 @@
+import path from 'path'
 import { runFixture } from '../utils'
 
 describe('typescript', () => {
   describe('multiple exports', () => {
-    it('should have no errors or warnings', () => {
-      const result = runFixture('typescript/multiple-exports')
+    runFixture('typescript/multiple-exports').results.forEach(r => {
+      const file = path.basename(r.filePath)
 
-      expect(result.errorCount).toBe(0)
-      expect(result.warningCount).toBe(0)
+      it(`${file} has no errors or warnings`, () => {
+        expect(r.messages).toEqual([])
+        expect(r.errorCount).toBe(0)
+        expect(r.warningCount).toBe(0)
+      })
     })
   })
 
   describe('circular deps', () => {
-    it('should have an error', () => {
-      const result = runFixture('typescript/cycle')
+    runFixture('typescript/cycle').results.forEach(r => {
+      const file = path.basename(r.filePath)
 
-      expect(result.errorCount).toBe(2)
-      expect(result.warningCount).toBe(0)
+      it(`${file} has an error`, () => {
+        expect(r.messages).toContainEqual(expect.objectContaining({ ruleId: 'import/no-cycle' }))
+
+        expect(r.errorCount).toBe(1)
+        expect(r.warningCount).toBe(0)
+      })
     })
   })
 })

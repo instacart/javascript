@@ -1,12 +1,16 @@
+import path from 'path'
 import { runFixture } from '../utils'
 
 describe('js-ts', () => {
   describe('circular deps', () => {
-    it('should have an error', () => {
-      const result = runFixture('js-ts/cycle')
+    runFixture('js-ts/cycle').results.forEach(r => {
+      const file = path.basename(r.filePath)
 
-      expect(result.errorCount).toBe(3)
-      expect(result.warningCount).toBe(0)
+      it(`${file} has an error`, () => {
+        expect(r.messages).toContainEqual(expect.objectContaining({ ruleId: 'import/no-cycle' }))
+        expect(r.errorCount).toBe(1)
+        expect(r.warningCount).toBe(0)
+      })
     })
   })
 })
