@@ -197,11 +197,12 @@ module.exports = {
   'react/self-closing-comp': 'error',
 
   // Enforce component methods order
-  // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/sort-comp.md
+  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
   'react/sort-comp': [
     'error',
     {
       order: [
+        'static-variables',
         'static-methods',
         'instance-variables',
         'lifecycle',
