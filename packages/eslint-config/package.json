@@ -1,6 +1,6 @@
 {
   "name": "@instacart/eslint-config",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Instacart's ESLint configuration",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.16.0"
   },
