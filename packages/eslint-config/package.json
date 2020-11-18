@@ -32,7 +32,7 @@
   "dependencies": {
     "confusing-browser-globals": "1.0.10",
     "eslint-config-prettier": "6.15.0",
-    "merge": "1.2.1"
+    "merge": "2.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
