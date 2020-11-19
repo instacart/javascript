@@ -1,6 +1,6 @@
 {
   "name": "@instacart/eslint-config",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Instacart's ESLint configuration",
   "main": "index.js",
   "scripts": {
@@ -19,15 +19,15 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
+    "eslint": "^7.13.0",
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-emotion": "^10.0.27",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "prettier": "^1.16.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.1.2"
   },
   "dependencies": {
     "confusing-browser-globals": "1.0.10",
@@ -42,16 +42,16 @@
     "@typescript-eslint/parser": "2.34.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
-    "eslint": "6.8.0",
+    "eslint": "7.13.0",
     "eslint-import-resolver-typescript": "1.1.1",
     "eslint-plugin-emotion": "^10.0.27",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.21.5",
-    "eslint-plugin-react-hooks": "2.5.1",
+    "eslint-plugin-react-hooks": "4.2.0",
     "jest": "26.6.3",
-    "prettier": "1.19.1",
+    "prettier": "2.1.2",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "typescript": "4.0.5"
