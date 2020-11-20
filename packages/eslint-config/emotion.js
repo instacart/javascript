@@ -1,4 +1,4 @@
 module.exports = {
-  plugins: ['emotion'],
+  plugins: ['@emotion'],
   rules: require('./rules/emotion'),
 }
