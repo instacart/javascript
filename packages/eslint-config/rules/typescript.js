@@ -11,13 +11,21 @@ module.exports = {
   '@typescript-eslint/ban-types': 'error',
 
   // Bans “// @ts-ignore” comments from being used
-  '@typescript-eslint/ban-ts-ignore': 'error',
+  '@typescript-eslint/ban-ts-comment': 'error',
 
-  // Enforce camelCase naming convention
-  '@typescript-eslint/camelcase': 'error',
-
-  // Require PascalCased class and interface names
-  '@typescript-eslint/class-name-casing': 'error',
+  // Enforces a camelCase convention for variables and a PascalCase convention for classes/interfaces
+  '@typescript-eslint/naming-convention': [
+    'error',
+    // Require that interface names not be prefixed with I
+    {
+      selector: 'interface',
+      format: ['PascalCase'],
+      custom: {
+        regex: '^I[A-Z]',
+        match: false,
+      },
+    },
+  ],
 
   // Enforces consistent usage of type assertions
   // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
@@ -41,9 +49,6 @@ module.exports = {
 
   // Enforce consistent indentation
   '@typescript-eslint/indent': ['error', 2],
-
-  // Require that interface names be prefixed with I
-  '@typescript-eslint/interface-name-prefix': ['error', 'never'],
 
   // Require a specific member delimiter style for interfaces and type literals
   '@typescript-eslint/member-delimiter-style': [
