@@ -46,6 +46,7 @@ module.exports = {
         // disable the base rule as it can report incorrect errors
         camelcase: 'off',
         indent: 'off',
+        'no-shadow': 'off',
       }),
     },
   ],

@@ -171,4 +171,7 @@ module.exports = {
 
   // Warns for any two overloads that could be unified into one.
   '@typescript-eslint/unified-signatures': 'off',
+
+  // Disallow variable declarations from shadowing variables declared in the outer scope.
+  '@typescript-eslint/no-shadow': 'error',
 }
