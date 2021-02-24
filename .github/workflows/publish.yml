@@ -1,110 +1,49 @@
 name: publish
 
 on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Package to publish
+        required: true
+        default: eslint-config
   release:
     types:
       - published
 
 jobs:
-  eslint-config-publish-github:
-    name: Publish eslint-config to Github Package Registry
+  generic_publish:
+    name: Publish ${{ matrix.package }} to ${{ matrix.registry.name }} Registry
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'eslint-config') }}
+    strategy:
+      matrix:
+        package:
+          - eslint-config
+          - prettier-config
+          - tsconfig
+        registry:
+          - name: NPM
+            url: https://registry.npmjs.org
+            token: ${{ secrets.NPM_TOKEN }}
+          - name: Github Package
+            url: https://npm.pkg.github.com
+            token: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      PACKAGE_NAME: ${{ github.event.inputs.package || github.event.release.name }}
     defaults:
       run:
-        working-directory: packages/eslint-config
+        working-directory: packages/${{ matrix.package }}
     steps:
       - uses: actions/checkout@v2
+        if: ${{ contains(env.PACKAGE_NAME, matrix.package) }}
       - uses: actions/setup-node@v1
+        if: ${{ contains(env.PACKAGE_NAME, matrix.package) }}
         with:
           node-version: 14
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: ${{ matrix.registry.url }}
       - run: yarn install
+        if: ${{ contains(env.PACKAGE_NAME, matrix.package) }}
       - run: yarn publish
+        if: ${{ contains(env.PACKAGE_NAME, matrix.package) }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  eslint-config-publish-npm:
-    name: Publish eslint-config to NPM Registry
-    runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'eslint-config') }}
-    defaults:
-      run:
-        working-directory: packages/eslint-config
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn install
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  prettier-config-publish-github:
-    name: Publish prettier-config to Github Package Registry
-    runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'prettier-config') }}
-    defaults:
-      run:
-        working-directory: packages/prettier-config
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: 'https://npm.pkg.github.com'
-      - run: yarn install
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  prettier-config-publish-npm:
-    name: Publish prettier-config to NPM Registry
-    runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'prettier-config') }}
-    defaults:
-      run:
-        working-directory: packages/prettier-config
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn install
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  tsconfig-publish-github:
-    name: Publish tsconfig to Github Package Registry
-    runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'tsconfig') }}
-    defaults:
-      run:
-        working-directory: packages/tsconfig
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: 'https://npm.pkg.github.com'
-      - run: yarn install
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  tsconfig-publish-npm:
-    name: Publish tsconfig to NPM Registry
-    runs-on: ubuntu-latest
-    if: ${{ contains(github.event.release.name, 'tsconfig') }}
-    defaults:
-      run:
-        working-directory: packages/tsconfig
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn install
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
