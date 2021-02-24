@@ -24,10 +24,8 @@ jobs:
         registry:
           - name: NPM
             url: https://registry.npmjs.org
-            token: ${{ secrets.NPM_TOKEN }}
           - name: Github Package
             url: https://npm.pkg.github.com
-            token: ${{ secrets.GITHUB_TOKEN }}
     env:
       PACKAGE_NAME: ${{ github.event.inputs.package || github.event.release.name }}
     defaults:
@@ -46,4 +44,4 @@ jobs:
       - run: yarn publish
         if: ${{ contains(env.PACKAGE_NAME, matrix.package) }}
         env:
-          NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
+          NODE_AUTH_TOKEN: ${{ matrix.name == 'NPM' && secrets.NPM_TOKEN || secrets.GITHUB_TOKEN }}
